@@ -14,9 +14,20 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 ```
 
-## 代码
-Python:
-```
+## 思路
+构造一个字典，遍历时将(target - num)作为键，num的索引作为值存入字典。
+同时遍历时都要判断当前num是否在字典中，在的话可以直接返回之前数的索引和当前数的索引。
 
+## 代码
+Python3:
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_dict = {}
+        for i, num in enumerate(nums):
+            if num in num_dict:
+                return [num_dict[num], i]
+            else:
+                num_dict[target - num] = i
 ```
 
