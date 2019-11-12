@@ -56,7 +56,7 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
 ## 思路
 1.注意空字符串。  
 2.跳过最前面的空格。  
-3.生成数字。
+3.生成数字。  
 4.注意判断生成数的范围。
 
 ## 代码
