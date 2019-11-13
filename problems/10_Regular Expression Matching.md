@@ -82,3 +82,29 @@ class Solution:
             return first_match and self.isMatch(s[1:], p[1:])
 ```
 
+## 思路2
+1.动态规划。从字符串末尾开始进行匹配。  
+2.创建二维数组，dp\[i\]\[j\]表示字符串从坐标i到末尾，正则表达式从j到末尾的匹配结果。  
+3.因为判定匹配结果要用到后移一位的匹配情况，为了末尾的匹配，各加了一维，dp\[-1\]\[-1\] = True，两个空为真。  
+4.从后往前两个循环，其余思路类似上面写的，最后输出dp\[0\]\[0\]。
+
+## 代码2
+Python3:
+```
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        dp = [[False] * (len(p) + 1) for _ in range(len(s) + 1)]
+        dp[-1][-1] = True
+
+        for i in range(len(s), -1, -1):
+            for j in range(len(p), -1, -1):
+                if i == len(s) and j == len(p):
+                    continue
+                first_match = i < len(s) and j < len(p) and p[j] in ['.', s[i]]
+                if j + 1 < len(p) and p[j + 1] == '*':
+                    dp[i][j] = dp[i][j + 2] or first_match and dp[i + 1][j]
+                else:
+                    dp[i][j] = first_match and dp[i + 1][j + 1]
+
+        return dp[0][0]
+```
