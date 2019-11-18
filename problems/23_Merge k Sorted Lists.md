@@ -85,3 +85,39 @@ class Solution:
 
         return self.mergeTwoLists(self.mergeKLists(l1), self.mergeKLists(l2))
 ```
+## 思路3
+1.把所有值都放入列表，排序，然后用这些数创建新列表。    
+
+## 代码3
+Python3:
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        values = []
+        
+        for list in lists: 
+            if list is None: 
+                continue
+                
+            values.append(list.val)
+            
+            while list.next != None:
+                list = list.next 
+                values.append(list.val)
+        
+        values.sort()
+        
+        dummy = ListNode(0)
+        head = dummy
+        
+        for num in values:
+            dummy.next = ListNode(num)
+            dummy=dummy.next
+            
+        return head.next 
+```
