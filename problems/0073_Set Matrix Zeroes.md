@@ -40,11 +40,11 @@ A straight forward solution using O(mn) space is probably a bad idea.
 A simple improvement uses O(m + n) space, but still not the best solution.
 Could you devise a constant space solution?
 
-## 思路
+## 思路1
 1.可以建两个集合分别存0的行和列的坐标，最后重新遍历整个矩阵，对应在行或列上的元素都变0。 
 2.空间复杂度是(m+n)
 
-## 代码
+## 代码1
 Python3:
 ```
 class Solution:
@@ -64,3 +64,5 @@ class Solution:
                 if i in rows or j in cols:
                     matrix[i][j] = 0
 ```
+## 思路2
+利用矩阵第一行和第一列当标记位，空间复杂度是(1)。
