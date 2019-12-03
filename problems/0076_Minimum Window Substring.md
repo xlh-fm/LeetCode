@@ -21,6 +21,9 @@ If there is such window, you are guaranteed that there will always be only one u
 这个过程中可以得到这次end对应最短的窗口，接下来让end继续往前跑。  
 4.找到比之前更短的子串时候就用head表示开头，并记录新的最短窗口长度。  
 
+## 附类似问题的模板方案
+https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+
 ## 代码
 Python3:
 ```
