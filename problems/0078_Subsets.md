@@ -24,7 +24,8 @@ The solution set must not contain duplicate subsets.
 
 ## 思路
 1.对无重复列表求全部的子集。  
-2.用回溯法，深度优先，每次进入回溯就把当前的存进去。    
+2.用回溯法，深度优先，每次进入回溯就把当前的存进去。  
+3.用start来进行限制，使能存入子集的只能是这个数字后面的数字。防止了\[1,2],\[2,1]都被存进来的情况。
 
 ## 附类似问题的模板方案
 https://leetcode.com/problems/subsets/discuss/27281/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)
